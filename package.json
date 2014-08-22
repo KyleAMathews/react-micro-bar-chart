@@ -1,7 +1,7 @@
 {
   "name": "react-micro-bar-chart",
   "description": "React component for micro bar-charts rendered with D3",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "bugs": {
     "url": "https://github.com/KyleAMathews/react-micro-bar-chart/issues"

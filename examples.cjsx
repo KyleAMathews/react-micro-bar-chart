@@ -41,6 +41,7 @@ module.exports = React.createClass
       <MicroBarChart
         width=200
         height=50
+        xAxis
         fillColor="steelblue" />
         """}
       </code></pre>

@@ -43,7 +43,7 @@ module.exports = React.createClass
 
     bar.append("rect")
         .attr("y", (d) -> return y(d))
-        .attr("height", (d) => console.log(d, y(d)); return @props.height - y(d))
+        .attr("height", (d) => return @props.height - y(d))
         .attr("width", barWidth - 1)
         .attr("fill", @props.fillColor)
 

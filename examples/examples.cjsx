@@ -5,7 +5,7 @@ MicroBarChart = require '../src/index'
 
 columns = ['apple', 'peach', {
   displayName: 'activity'
-  function: (data) -> <MicroBarChart data={data.data} />
+  function: (data) -> <MicroBarChart xAxis data={data.data} />
 }]
 
 data = for i in [0..5]
@@ -47,6 +47,7 @@ module.exports = React.createClass
       <MicroBarChart
         width=200
         height=50
+        xAxis
         fillColor="steelblue" />
       <br />
       <br />

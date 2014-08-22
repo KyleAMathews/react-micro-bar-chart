@@ -49,7 +49,7 @@ module.exports = React.createClass
 
     if @props.xAxis
       xAxis = d3.svg.axis()
-        .scale(d3.scale.linear().range([@props.width, 0]))
+        .scale(d3.scale.linear().range([@props.width-1, 0]))
         .orient("bottom")
 
       chart.append("g")

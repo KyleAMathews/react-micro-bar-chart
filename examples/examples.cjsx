@@ -35,6 +35,25 @@ module.exports = React.createClass
       <br />
       <br />
 
+      <h2>Add a hover color</h2>
+      <pre><code>
+      {"""
+      <MicroBarChart
+        width=200
+        height=50
+        hoverColor="rgb(161,130,214)"
+        fillColor="rgb(210,193,237)" />
+        """}
+      </code></pre>
+      <MicroBarChart
+        width=200
+        height=50
+        hoverColor="rgb(161,130,214)"
+        fillColor="rgb(210,193,237)" />
+      <br />
+      <br />
+      <br />
+
       <h2>Override all options</h2>
       <pre><code>
       {"""

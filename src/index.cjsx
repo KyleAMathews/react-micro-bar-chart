@@ -19,6 +19,10 @@ module.exports = React.createClass
     <svg />
 
   renderBarChart: ->
+    self = @
+    unless @props.hoverColor?
+      @props.hoverColor = @props.fillColor
+
     values = @props.data.slice()
 
     y = d3.scale.linear()
@@ -46,6 +50,14 @@ module.exports = React.createClass
         .attr("height", (d) => return @props.height - y(d))
         .attr("width", barWidth - 1)
         .attr("fill", @props.fillColor)
+        .on("mouseover", (d) ->
+          console.log @
+          d3.select(@).attr("fill", self.props.hoverColor)
+        )
+        .on("mouseout", (d) ->
+          console.log @
+          d3.select(@).attr("fill", self.props.fillColor)
+        )
 
     if @props.xAxis
       xAxis = d3.svg.axis()
@@ -54,5 +66,6 @@ module.exports = React.createClass
 
       chart.append("g")
         .attr("class", "x axis")
+        .attr("fill", @props.fillColor)
         .attr("transform", "translate(0," + @props.height + ")")
         .call xAxis

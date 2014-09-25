@@ -8,8 +8,7 @@ module.exports = {
     'webpack/hot/dev-server',
     './examples/index'
   ],
-  contentBase: './examples/',
-  devtool: "eval",
+  devtool: "source-map",
   debug: true,
   output: {
     path: path.join(__dirname, 'examples'),

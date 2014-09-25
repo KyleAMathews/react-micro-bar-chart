@@ -54,6 +54,34 @@ module.exports = React.createClass
       <br />
       <br />
 
+      <h2>Add a tooltip with template</h2>
+      <pre><code>
+      {"""
+      <MicroBarChart
+        width=200
+        height=50
+        tooltip
+        tipOffset={[0,20]}
+        tipTemplate={(d,i) -> "value of \#{d} at index \#{i}"}
+        hoverColor="rgb(161,130,214)"
+        fillColor="rgb(210,193,237)" />
+        """}
+      </code></pre>
+      <br />
+      <br />
+      <br />
+      <MicroBarChart
+        width=200
+        height=50
+        tooltip
+        tipOffset={[0,20]}
+        tipTemplate={(d,i) -> "value of #{d} at index #{i}"}
+        hoverColor="rgb(161,130,214)"
+        fillColor="rgb(210,193,237)" />
+      <br />
+      <br />
+      <br />
+
       <h2>Override all options</h2>
       <pre><code>
       {"""
@@ -61,6 +89,7 @@ module.exports = React.createClass
         width=200
         height=50
         xAxis
+        hoverColor="pink"
         fillColor="steelblue" />
         """}
       </code></pre>
@@ -68,6 +97,7 @@ module.exports = React.createClass
         width=200
         height=50
         xAxis
+        hoverColor="pink"
         fillColor="steelblue" />
       <br />
       <br />

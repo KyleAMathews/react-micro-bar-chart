@@ -1,6 +1,32 @@
 <html>
   <head>
     <title>Example</title>
+    <style>
+      .d3-tip {
+        line-height: 1;
+        font-weight: bold;
+        padding: 12px 24px;
+        background: rgb(161, 130, 214);
+        color: #fff;
+        border-radius: 2px;
+      }
+
+      /* Creates a small triangle extender for the tooltip */
+      .d3-tip:after {
+        box-sizing: border-box;
+        display: inline;
+        font-size: 14px;
+        width: 100%;
+        line-height: 1;
+        color: rgb(161, 130, 214);
+        content: "\25BC";
+        position: absolute;
+        text-align: center;
+        top: 100%;
+        left: 0;
+      }
+
+    </style>
   </head>
   <body>
     <script src="./bundle.js"></script>

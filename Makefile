@@ -20,6 +20,7 @@ publish:
 
 publish-gh-pages:
 	git checkout gh-pages
+	rm -f examples/bundle.js
 	git merge master
 	webpack --config webpack.config.production.js
 	cp examples/* .

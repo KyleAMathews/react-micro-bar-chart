@@ -49,8 +49,8 @@ module.exports = React.createClass
         .attr("transform", (d, i) -> return "translate(" + i * barWidth + ",0)")
 
     if self.props.tooltip
-      tooltip = d3.select("body").append("div")
-                    .attr("class", "d3-tip")
+      @tooltip = tooltip = d3.select("body").append("div")
+                    .attr("class", "barchart-tooltip")
                     .style("opacity", 1e-6)
                     .style("position", "absolute")
 

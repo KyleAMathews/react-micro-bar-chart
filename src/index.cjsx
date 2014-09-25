@@ -18,6 +18,10 @@ module.exports = React.createClass
   componentDidMount: ->
     @renderBarChart()
 
+  componentWillUnmount: ->
+    if @tooltip?
+      @tooltip.remove()
+
   render: ->
     <svg />
 

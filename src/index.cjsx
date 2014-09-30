@@ -88,6 +88,7 @@ module.exports = React.createClass
             scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft
 
             tooltip
+              .style("visibility", "visible")
               .transition()
               .duration(100)
               .style("opacity", 1)
@@ -102,6 +103,7 @@ module.exports = React.createClass
               .transition()
               .duration(250)
               .style("opacity", 1/1e6)
+              .each("end", -> tooltip.style("visibility", "hidden"))
         )
 
     if @props.xAxis

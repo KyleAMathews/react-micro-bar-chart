@@ -18,6 +18,10 @@ module.exports = React.createClass
   componentDidMount: ->
     @renderBarChart()
 
+  componentWillUnmount: ->
+    if @tooltip?
+      @tooltip.remove()
+
   render: ->
     <svg />
 
@@ -49,8 +53,8 @@ module.exports = React.createClass
         .attr("transform", (d, i) -> return "translate(" + i * barWidth + ",0)")
 
     if self.props.tooltip
-      tooltip = d3.select("body").append("div")
-                    .attr("class", "d3-tip")
+      @tooltip = tooltip = d3.select("body").append("div")
+                    .attr("class", "barchart-tooltip")
                     .style("opacity", 1e-6)
                     .style("position", "absolute")
 
@@ -78,17 +82,32 @@ module.exports = React.createClass
             # Measure height/width of tooltip.
             tipWidth = tooltip[0][0].offsetWidth
             tipHeight = tooltip[0][0].offsetHeight
+            if tooltip[0][0].style.opacity < 0.5
+              fadingIn = true
 
             # Account for window scroll.
             scrollTop  = document.documentElement.scrollTop || document.body.scrollTop
             scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft
 
-            tooltip
-              .transition()
-              .duration(100)
-              .style("opacity", 1)
-              .style("left", coords.x + scrollLeft - tipWidth/2 + barWidth/2 - self.props.tipOffset[0]  + "px")
-              .style("top", coords.y + scrollTop - tipHeight - self.props.tipOffset[1] + "px")
+            if fadingIn
+              # When fading in, don't transition to new position as that doesn't
+              # feel natural.
+              tooltip
+                .style("visibility", "visible")
+                .style("left", coords.x + scrollLeft - tipWidth/2 + barWidth/2 - self.props.tipOffset[0]  + "px")
+                .style("top", coords.y + scrollTop - tipHeight - self.props.tipOffset[1] + "px")
+                .transition()
+                .duration(100)
+                .style("opacity", 1)
+            else
+              tooltip
+                .style("visibility", "visible")
+                .transition()
+                .duration(100)
+                .style("opacity", 1)
+                .style("left", coords.x + scrollLeft - tipWidth/2 + barWidth/2 - self.props.tipOffset[0]  + "px")
+                .style("top", coords.y + scrollTop - tipHeight - self.props.tipOffset[1] + "px")
+
         )
         .on("mouseout", (d) ->
           d3.select(@).attr("fill", self.props.fillColor)
@@ -98,6 +117,7 @@ module.exports = React.createClass
               .transition()
               .duration(250)
               .style("opacity", 1/1e6)
+              .each("end", -> tooltip.style("visibility", "hidden"))
         )
 
     if @props.xAxis

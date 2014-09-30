@@ -25,3 +25,4 @@ build/Release
 node_modules
 examples/bundle.js
 dist/index.js
+examples/bundle.js.map

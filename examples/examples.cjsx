@@ -62,7 +62,7 @@ module.exports = React.createClass
         height=50
         tooltip
         tipOffset={[0,20]}
-        tipTemplate={(d,i) -> "value of \#{d} at index \#{i}"}
+        tipTemplate={(d, i, data) -> "value of \#{d} at index \#{i}, with \#{data.length} data points"}
         hoverColor="rgb(161,130,214)"
         fillColor="rgb(210,193,237)" />
         """}
@@ -75,7 +75,7 @@ module.exports = React.createClass
         height=50
         tooltip
         tipOffset={[0,20]}
-        tipTemplate={(d,i) -> "value of #{d} at index #{i}"}
+        tipTemplate={(d, i, data) -> "value of #{d} at index #{i}, with #{data.length} data points"}
         hoverColor="rgb(161,130,214)"
         fillColor="rgb(210,193,237)" />
       <br />

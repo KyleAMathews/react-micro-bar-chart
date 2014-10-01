@@ -77,7 +77,7 @@ module.exports = React.createClass
             coords =  point.matrixTransform(matrix)
 
             # Set HTML
-            tooltip.html self.props.tipTemplate(d,i)
+            tooltip.html self.props.tipTemplate(d, i, values)
 
             # Measure height/width of tooltip.
             tipWidth = tooltip[0][0].offsetWidth

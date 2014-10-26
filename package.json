@@ -20,7 +20,10 @@
     "style-loader": "^0.8.0",
     "underscore": "^1.7.0",
     "webpack": "^1.4.3",
-    "webpack-dev-server": "^1.6.5"
+    "webpack-dev-server": "^1.6.5",
+    "react": "*",
+    "react-simple-table": "*",
+    "faker": "*"
   },
   "homepage": "https://github.com/KyleAMathews/react-micro-bar-chart",
   "keywords": [

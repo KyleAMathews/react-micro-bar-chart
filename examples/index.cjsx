@@ -1,4 +1,4 @@
 React = require('react')
 Examples = require './examples'
 
-React.renderComponent(<Examples />, document.body)
+React.render(<Examples />, document.body)

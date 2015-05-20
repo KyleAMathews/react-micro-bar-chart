@@ -10,10 +10,10 @@ columns = ['apple', 'peach', {
 
 data = for i in [0..5]
   {
-    apple: faker.Lorem.words(1)
-    peach: faker.Lorem.words(1)
+    apple: faker.lorem.words(1)
+    peach: faker.lorem.words(1)
     data: for i in [0..7]
-      faker.Helpers.randomNumber(200)
+      faker.helpers.randomNumber(200)
   }
 
 module.exports = React.createClass

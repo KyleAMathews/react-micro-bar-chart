@@ -8,6 +8,10 @@ module.exports = {
     'webpack/hot/dev-server',
     './examples/index'
   ],
+  devServer: {
+    contentBase: './examples/',
+    hot: true
+  },
   devtool: "source-map",
   debug: true,
   output: {

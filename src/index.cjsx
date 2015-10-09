@@ -1,4 +1,5 @@
 React = require 'react'
+ReactDOM = require 'react-dom'
 d3 = require 'd3'
 
 module.exports = React.createClass
@@ -41,7 +42,7 @@ module.exports = React.createClass
     else
       height = @props.height
 
-    chart = d3.select(@getDOMNode())
+    chart = d3.select(ReactDOM.findDOMNode(@))
         .attr("width", @props.width)
         .attr("height", height)
 

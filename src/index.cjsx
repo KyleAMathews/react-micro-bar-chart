@@ -120,6 +120,8 @@ module.exports = React.createClass
               .style("opacity", 1/1e6)
               .each("end", -> tooltip.style("visibility", "hidden"))
         )
+    if @props.onClick
+      bar.on "click", (d, i) => @props.onClick(d, i)
 
     if @props.xAxis
       xAxis = d3.svg.axis()

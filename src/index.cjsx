@@ -2,19 +2,7 @@ React = require 'react'
 ReactDOM = require 'react-dom'
 d3 = require 'd3'
 
-module.exports = React.createClass
-
-  getDefaultProps: ->
-    return {
-      width: 100
-      height: 16
-      xAxis: false
-      fillColor: 'black'
-      data: [7,1,5,5,4,3,5,2,3,5,6] # Some semi-random data.
-      tooltip: false
-      tipOffset: [0,0]
-      tipTemplate: (d, i) -> "Value: #{d}, index: #{i}"
-    }
+class MultiBarChart extends React.Component
 
   componentDidMount: ->
     @renderBarChart()
@@ -133,3 +121,16 @@ module.exports = React.createClass
         .attr("fill", @props.fillColor)
         .attr("transform", "translate(0," + @props.height + ")")
         .call xAxis
+
+MultiBarChart.defaultProps =
+      width: 100
+      height: 16
+      xAxis: false
+      fillColor: 'black'
+      data: [7,1,5,5,4,3,5,2,3,5,6] # Some semi-random data.
+      tooltip: false
+      tipOffset: [0,0]
+      tipTemplate: (d, i) -> "Value: #{d}, index: #{i}"
+
+
+module.exports = MultiBarChart
